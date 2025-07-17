@@ -4,3 +4,5 @@ __pycache__/
 # .venv/
 logs/
 *.log
+how-to/notes_es.md
+*/not_working/
