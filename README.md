@@ -1,15 +1,32 @@
 # NetBox tasks
 
 ## Installing NetBox
-This repository includes a customized NetBox Docker repository (v3.3.0). Clone it using:
+
+Clone this repository:
 
 ```bash
 $ git clone https://github.com/NoaVelasco/netbox-test.git
-$ cd netbox-docker
+```
 
+This repository includes a customized NetBox Docker repository (v3.3.0), but it can't be accessed. Clone the original NetBox-Docker repository:
+
+```bash
+$ git clone https://github.com/netbox-community/netbox-docker.git
+$ cd netbox-docker
+```
+Copy the [docker-compose.override.yml](docker-compose.override.yml) file of **this** repository into this directory or create it: 
+```bash
+$ echo 'services:
+  netbox:
+    ports:
+      - "8000:8080"' > docker-compose.override.yml
+```
+
+
+Run Docker:
+```bash
 $ docker compose pull
 $ docker compose up
-
 ```
 
 If the superuser variables doesn't set it up automatically, create a superuser to access the application:

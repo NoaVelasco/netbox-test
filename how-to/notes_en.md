@@ -22,7 +22,7 @@
     - Username: "test"
     - Email address: "..."
     - Password: "..."
-- However, for persistence, I add it to the configuration in the `docker-compose.override.yml` file (Github will warn me about that) and access to verify that it works:  
+- However, for persistence, I add it to the configuration in the `docker-compose.override.yml` file and access to verify that it works:  
 
 ![login](./login-success.jpg)
 
