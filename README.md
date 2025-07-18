@@ -4,7 +4,7 @@
 This repository includes a customized NetBox Docker repository (v3.3.0). Clone it using:
 
 ```bash
-$ git clone ...
+$ git clone https://github.com/NoaVelasco/netbox-test.git
 $ cd netbox-docker
 
 $ docker compose pull
@@ -104,6 +104,11 @@ Description:
 URL: http://localhost:8000/api/dcim/sites/6/
 ----------------------------------------
 ```
+
+## About my working proccess
+For more info and the steps I followed working in this test, see [my notes](how-to/notes_en.md).
+
+
 
 ---
 
