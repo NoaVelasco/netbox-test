@@ -67,3 +67,9 @@ curl -H "Authorization: Token <MY_TOKEN>" \
 
 ### 5. Final Touches
 In addition to creating the [README.md](../README.md) file and these project notes throughout the test, I need to improve the documentation of the files. I make sure to leave it as correct as possible, check the latest changes, paths, etc.
+
+The `netbox-docker` repository acts as a submodule. I removed the .git directory, but it still remains unnaccesible. I re-track the directory:
+```bash
+git rm --cache netbox-docker
+git add netbox-docker
+```

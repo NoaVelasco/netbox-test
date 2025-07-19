@@ -5,35 +5,49 @@
 Clone this repository:
 
 ```bash
-$ git clone https://github.com/NoaVelasco/netbox-test.git
+git clone https://github.com/NoaVelasco/netbox-test.git
+cd netbox-test
 ```
 
-This repository includes a customized NetBox Docker repository (v3.3.0), but it can't be accessed. Clone the original NetBox-Docker repository:
+This repository includes a customized NetBox Docker repository (v3.3.0) as a submodule. If it can't be accessed, follow these steps.
+
+1. Clone the original NetBox-Docker repository in `netbox-test`:
 
 ```bash
-$ git clone https://github.com/netbox-community/netbox-docker.git
-$ cd netbox-docker
+git clone https://github.com/netbox-community/netbox-docker.git
+cd netbox-docker
 ```
-Copy the [docker-compose.override.yml](docker-compose.override.yml) file of **this** repository into this directory or create it: 
+2. Copy the [docker-compose.override.yml](docker-compose.override.yml) file of **this** repository into this directory or create it: 
 ```bash
-$ echo 'services:
+echo 'services:
   netbox:
     ports:
       - "8000:8080"' > docker-compose.override.yml
+
+# You can add environment variables:
+    # environment:
+      # SKIP_SUPERUSER: "false"
+      # SUPERUSER_API_TOKEN: ""
+      # SUPERUSER_EMAIL: ""
+      # SUPERUSER_NAME: ""
+      # SUPERUSER_PASSWORD: ""
 ```
 
 
 Run Docker:
 ```bash
-$ docker compose pull
-$ docker compose up
+docker compose pull
+docker compose up
 ```
 
-If the superuser variables doesn't set it up automatically, create a superuser to access the application:
+The superuser environment variables are not included because it is not safe to share them in public repositories (and Github will send warning messages). You must create a superuser to access the application:
 
 ```bash
-$ docker compose exec netbox /opt/netbox/netbox/manage.py createsuperuser
+docker compose exec netbox /opt/netbox/netbox/manage.py createsuperuser
+
+# Then it'll ask for a username, an email and a password.
 ```
+
 
 ## Adding data
 Add new sites through the NetBox UI. Go to Organization/Sites and click Import. 
@@ -57,7 +71,7 @@ To run the script, just click on the name. The result will be like this:
 ## Running API script
 This script allows you to query NetBox sites by their status using the API. It's in the root directory of the repository: [netbox_sites.py](netbox_sites.py).
 
-It's recomended to set up a virtual environment, but in most scenarios it would be unnecesary.  
+It's recommended to set up a virtual environment, but in most scenarios it would be unnecessary.  
 
 ```bash
 cd netbox-test
@@ -87,7 +101,7 @@ options:
   --list-statuses  Show available statuses
 ```
 
-To run the script, you need the API token and the status. If you don't provide an URL, the scripts uses by default http://localhost:8000.  
+To run the script, you need the API token and the status. If you don't provide a URL, the script uses http://localhost:8000 by default.  
 
 You can create a new token through the user menu:
 
@@ -122,8 +136,8 @@ URL: http://localhost:8000/api/dcim/sites/6/
 ----------------------------------------
 ```
 
-## About my working proccess
-For more info and the steps I followed working in this test, see [my notes](how-to/notes_en.md).
+## About my working process
+For more info and the steps I followed while working on this test, see [my notes](how-to/notes_en.md).
 
 
 
