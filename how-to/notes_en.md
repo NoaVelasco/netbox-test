@@ -73,3 +73,5 @@ The `netbox-docker` repository acts as a submodule. I removed the .git directory
 git rm --cache netbox-docker
 git add netbox-docker
 ```
+### 6. Unit test
+I have extra time. I ask Github Copilot to make a test suite in unittest, included in the Python 3 base libraries.

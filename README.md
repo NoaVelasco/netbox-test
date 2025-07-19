@@ -136,6 +136,28 @@ URL: http://localhost:8000/api/dcim/sites/6/
 ----------------------------------------
 ```
 
+## Running Tests
+
+The project includes a comprehensive test suite that uses mock objects to simulate API responses, allowing you to test the functionality without an actual NetBox server connection.
+
+To run the tests:
+
+```bash
+# Run all tests
+python3 run_tests.py
+
+# Or run a specific test file
+python3 -m unittest test_netbox_sites.py
+```
+
+The tests cover:
+- API client initialization
+- Site querying with and without status filters
+- Error handling for API requests
+- Processing of API responses
+- Display formatting of site information
+
+
 ## About my working process
 For more info and the steps I followed while working on this test, see [my notes](how-to/notes_en.md).
 
